@@ -1,0 +1,49 @@
+buildscript {
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE"
+    }
+    repositories {
+        jcenter()
+    }
+}
+apply plugin: "spring-boot"
+apply plugin: "groovy"
+
+repositories {
+    jcenter()
+}
+
+//bootRun {
+//    systemProperties = [
+//        'spring.profiles.active': 'development'
+//    ]
+//    addResources = true
+//}
+//
+//test {
+//    systemProperties = [
+//        'spring.profiles.active': 'test'
+//    ]
+//}
+
+
+
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+//    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.springframework.boot:spring-boot-devtools"
+    compile "org.grails:gorm-hibernate5-spring-boot:6.0.1.RELEASE"
+    compile "org.codehaus.groovy:groovy-all:2.4.3"
+    runtime "org.apache.tomcat:tomcat-jdbc"
+    runtime "org.hibernate:hibernate-ehcache"
+//    runtime "org.hsqldb:hsqldb"
+    runtime "org.slf4j:slf4j-api:1.7.21"
+//    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.40'
+
+    runtime "com.h2database:h2"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.spockframework:spock-spring:1.1-groovy-2.4-rc-2"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4-rc-2"
+}
