@@ -1,7 +1,16 @@
-dataSource:
+spring:
+  dataSource:
     pooled: true
     dbCreate: create-drop
+  # need this due to possible bug with devtools and hibernate 5
+  # http://stackoverflow.com/questions/35416308/class-loading-error-with-spring-boot-and-hibernate-5
+  devtools:
+    restart:
+      include:
+        all: .*
 hibernate:
+  hbm2ddl:
+    auto: update
   cache:
     queries: false
     use_second_level_cache: true

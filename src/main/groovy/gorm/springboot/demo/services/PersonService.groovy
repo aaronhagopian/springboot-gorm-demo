@@ -1,22 +1,14 @@
 package gorm.springboot.demo.services
 
 import gorm.springboot.demo.model.Person
-import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
 
-@Service('personService')
-@Transactional
-class PersonService {
+/**
+ * Interface for dealing with Person model.
+ */
+interface PersonService {
+    List<Person> getAllPersons()
 
-    def getAllPersons() {
-        return Person.list()
-    }
+    boolean save(Person p)
 
-    def save(Person p) {
-        p.save(true)
-    }
-
-    def getPerson(long id) {
-        return Person.get(id)
-    }
+    Person getPerson(long id)
 }

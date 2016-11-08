@@ -26,23 +26,28 @@ repositories {
 //    ]
 //}
 
-
-
-
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
-//    compile "org.springframework.boot:spring-boot-starter-jdbc"
-    compile "org.springframework.boot:spring-boot-devtools"
-    compile "org.grails:gorm-hibernate5-spring-boot:6.0.1.RELEASE"
+    // Using devtools seems to break it from working
+//    compile "org.springframework.boot:spring-boot-devtools"
     compile "org.codehaus.groovy:groovy-all:2.4.3"
-    runtime "org.apache.tomcat:tomcat-jdbc"
-    runtime "org.hibernate:hibernate-ehcache"
-//    runtime "org.hsqldb:hsqldb"
-    runtime "org.slf4j:slf4j-api:1.7.21"
+
+    compile "org.grails:gorm-hibernate5-spring-boot:6.0.4.RELEASE"
+    compile "org.hibernate:hibernate-core:5.1.0.Final"
+    compile "org.hibernate:hibernate-ehcache:5.1.0.Final"
+    runtime "com.h2database:h2:1.4.192"
+
+    // for MySQL
+//    runtime "mysql:mysql-connector-java"
 //    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.40'
 
-    runtime "com.h2database:h2"
+    // for connection pooling
+    runtime "org.apache.tomcat:tomcat-jdbc:8.5.0"
+    runtime "org.apache.tomcat.embed:tomcat-embed-logging-log4j:8.5.0"
+
+    runtime "org.slf4j:slf4j-api:1.7.21"
+
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.spockframework:spock-spring:1.1-groovy-2.4-rc-2"
     testCompile "org.spockframework:spock-core:1.1-groovy-2.4-rc-2"

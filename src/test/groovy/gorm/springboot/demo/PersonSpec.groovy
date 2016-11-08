@@ -2,17 +2,15 @@ package gorm.springboot.demo
 
 import gorm.springboot.demo.model.Person
 import gorm.springboot.demo.services.PersonService
-import grails.transaction.Transactional
+import gorm.springboot.demo.services.PersonServiceImpl
 import groovy.util.logging.Slf4j
-import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.transaction.annotation.EnableTransactionManagement
 import spock.lang.Specification
 
 //@RunWith(SpringRunner)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes=[Main, Person])
 @Slf4j
 class PersonSpec extends Specification {
 
